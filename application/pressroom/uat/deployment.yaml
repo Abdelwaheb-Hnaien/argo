@@ -1,36 +1,36 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: dataportal-dev
+  name: pressroom-uat
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dataportal-ui
+  name: pressroom-ui
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: dataportal-ui
+      app: pressroom-ui
   template:
     metadata:
       labels:
-        app: dataportal-ui
+        app: pressroom-ui
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: dataportal-ui
+        name: pressroom-ui
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: dataportal-ui
+  name: pressroom-ui
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: dataportal-ui
+    app: pressroom-ui
