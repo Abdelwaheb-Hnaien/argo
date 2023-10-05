@@ -15,7 +15,7 @@ spec:
     spec:
       project: '{{app}}'
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/Abdelwaheb-Hnaien/argo.git
         targetRevision: main
         path: application/{{app}}/{{env}}
       ignoreDifferences:
