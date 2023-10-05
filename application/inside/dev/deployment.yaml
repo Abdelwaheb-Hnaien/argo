@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inside-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: inside-ui
+  template:
+    metadata:
+      labels:
+        app: inside-ui
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: inside-ui
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inside-ui
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: inside-ui
