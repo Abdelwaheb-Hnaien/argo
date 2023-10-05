@@ -16,7 +16,7 @@ spec:
       project: '{{app}}'
       source:
         repoURL: https://github.com/argoproj/argo-cd.git
-        targetRevision: HEAD
+        targetRevision: main
         path: application/{{app}}/{{env}}
       ignoreDifferences:
         - group: apps
