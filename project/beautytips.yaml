@@ -8,7 +8,9 @@ spec:
   - group: '*'
     kind: '*'
   destinations:
-  - namespace: beautytips
+  - namespace: beautytips-dev
+    server: https://kubernetes.default.svc
+  - namespace: beautytips-uat
     server: https://kubernetes.default.svc
   orphanedResources:
     warn: false
