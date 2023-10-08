@@ -9,6 +9,9 @@ spec:
       - app: beautytips
         env: dev
         url: https://kubernetes.default.svc
+      - app: beautytips
+        env: uat
+        url: https://kubernetes.default.svc
   template:
     metadata:
       name: '{{app}}-{{env}}'
@@ -26,7 +29,7 @@ spec:
       destination:
         server: '{{url}}'
         namespace: '{{app}}-{{env}}'
-    syncPolicy:
+      syncPolicy:
         managedNamespaceMetadata:
           labels:
             application: '{{app}}'
